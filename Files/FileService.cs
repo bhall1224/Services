@@ -1,9 +1,7 @@
 using System;
-using System.Diagnostics;
-using System.Collections;
 using System.IO;
 
-namespace Services.Files
+namespace Madman.Games.Services.Files
 {
     public class FileService
     {
