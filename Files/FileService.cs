@@ -29,14 +29,22 @@ namespace Madman.Games.Services.Files
             Console.WriteLine($"Current working directory: {dir}");
 
             string path = $"{dir}/{fileName}";
-            using (StreamReader sr = File.OpenText(path))
+
+            if (File.Exists(path))
             {
-                string contents;
-                while ((contents = sr.ReadLine()) != null)
+                using (StreamReader sr = File.OpenText(path))
                 {
-                    Console.WriteLine($"Contents: {contents}");
-                    FileContents += contents;
+                    string contents;
+                    while ((contents = sr.ReadLine()) != null)
+                    {
+                        Console.WriteLine($"Contents: {contents}");
+                        FileContents += contents;
+                    }
                 }
+            }
+            else
+            {
+                FileContents = string.Empty;
             }
         }
     }
